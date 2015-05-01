@@ -95,7 +95,7 @@ class TopLevelCommand(Command):
       start     Start services
       stop      Stop services
       up        Create and start containers
-
+      web       Run Web GUI
     """
     def docopt_options(self):
         options = super(TopLevelCommand, self).docopt_options()
@@ -117,6 +117,15 @@ class TopLevelCommand(Command):
         """
         no_cache = bool(options.get('--no-cache', False))
         project.build(service_names=options['SERVICE'], no_cache=no_cache)
+
+
+    def web(self, project, options):
+        """
+        Run Web GUI
+
+        Usage: web
+        """
+        print("Run Web GUI INFO")
 
     def help(self, project, options):
         """
