@@ -20,9 +20,9 @@ from .errors import UserError
 from .formatter import Formatter
 from .log_printer import LogPrinter
 from .utils import yesno
+from ..web_gui import WebGUI
 
 log = logging.getLogger(__name__)
-
 
 def main():
     setup_logging()
@@ -126,6 +126,9 @@ class TopLevelCommand(Command):
         Usage: web
         """
         print("Run Web GUI INFO")
+        web_gui = WebGUI()
+        web_gui.run()
+
 
     def help(self, project, options):
         """
